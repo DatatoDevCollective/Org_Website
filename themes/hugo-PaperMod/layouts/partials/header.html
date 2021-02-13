@@ -55,6 +55,11 @@
                 {{- if .Site.Params.label.icon }}
                 <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
                     height="{{- .Site.Params.label.iconHeight | default "30px" -}}">
+                <script>
+                    if (localStorage.getItem("pref-theme") === "dark") {
+                        document.querySelector('[aria-label="logo"]').src = "/DDC_Logo_fDark.png";
+                    }
+                </script>
                 {{- end -}}
                 {{- .Site.Params.label.text | default .Site.Title -}}
             </a>
