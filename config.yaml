@@ -1,19 +1,14 @@
-theme: "hugo-PaperMod"
+theme: "kube"
 baseURL: https://datatodev.netlify.app/
 languageCode: en-us
-title: " "
+title: Data To Dev Collective
 
-params:
-  defaultTheme: auto
-  ShowShareButtons: true
-  ShowReadingTime: true
-  homeInfoParams:
-    Title: "This is where Homepage Title goes."
-    Content: >
-      This is where Hompage content goes.
-  socialIcons:
-    - name: github
-      url: "https://github.com/DatatoDevCollective"
-  label:
-    icon: /DDC_Logo_New.png
-    iconHeight: 50
+Params:
+  logo: /BigLogo.svg
+  logoHeight: 36px
+
+menu:
+  main:
+    - name: Blog
+      weight: -100
+      url: /post/
