@@ -1,7 +1,7 @@
 theme: "kube"
 baseURL: https://datatodev.netlify.app/
 languageCode: en-us
-title: Data To Dev Collective
+title: "Data To Dev\n Collective"
 
 Params:
   logo: /BigLogo.svg
