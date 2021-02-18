@@ -20,19 +20,23 @@ menu:
       identifier: About
       weight: 3
       post: <i class="fa fa-caret-down"></i>
+    - name: Vision
+      url: /vision.html/
+      parent: About
+      weight: 1
     - name: Team
       url: /team.html/
       parent: About
-      weight: 1
+      weight: 2
     - name: Contact Us
       url: /contact-us.html/
       parent: About
-      weight: 2
+      weight: 3
     - name: Join Us
       url: /join-us.html/
       parent: About
-      weight: 3
+      weight: 4
     - name: FOSS Guidelines
       url: /foss-guidelines.html/
       parent: About
-      weight: 4
+      weight: 5
