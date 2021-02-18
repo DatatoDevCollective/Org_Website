@@ -15,10 +15,13 @@ menu:
     - name: Blog
       weight: 2
       url: /post/
+    - name: Hire Us
+      url: /contact-us.html/
+      weight: 3
     - name: About
       url: ""
       identifier: About
-      weight: 3
+      weight: 4
       post: <i class="fa fa-caret-down"></i>
     - name: Vision
       url: /vision.html/
