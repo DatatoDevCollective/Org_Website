@@ -9,7 +9,29 @@
     <div id="top-brand">
       <a href="/" title="home"><img height="{{ .Site.Params.logoHeight }}" src="{{ .Site.Params.logo }}"/></a>
     </div>
-    <nav id="top-nav-main">
+
+    {{ $currentPage := . }}
+    <nav id="nav">
+      <ul id="menu">
+          {{ range .Site.Menus.main }}
+          <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" id="{{ if .HasChildren }}dropdown{{ end }}">
+              <span>{{ if .URL }}<a href="{{ .URL }}">{{ .Name }}</a>{{ else }}{{ .Name }}{{ end }}</span>
+              {{ if .HasChildren }}
+                {{ .Post }}
+              <ul id="sub-menu">
+                  {{ range .Children }}
+                  <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                      <span><a href="{{ .URL }}">{{ .Name }}</a></span>
+                  </li>
+                  {{ end }}
+              </ul>
+             {{ end }}
+          </li>
+          {{ end }}
+      </ul>
+  </nav>
+<!--Old nav-->
+    <!-- <nav id="top-nav-main">
       <ul>
        {{ $currentPage := . }}
        {{ range .Site.Menus.main }}
@@ -25,5 +47,6 @@
           </li>
         {{ end }}  
       </ul>
-    </nav>
+    </nav> -->
+
   </div>

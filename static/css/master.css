@@ -215,6 +215,33 @@ h1, h2, h3, h4, h5, h6 {
         color: #000;
         text-decoration: underline; }
 
+#menu {
+  justify-content: space-around;
+  width: 400px;
+  height: auto;
+}
+#menu a{
+  color:#000;
+  text-decoration: none;
+}
+#menu a:hover{
+  -moz-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+  color: rgba(0, 0, 0);
+  text-decoration: underline;
+}
+#sub-menu {
+  position: absolute;
+  display: none !important;
+}
+#dropdown {
+  justify-self: flex-end;
+  cursor: pointer;
+}
+#dropdown:hover #sub-menu {
+  display: block !important;
+}
+
 #hero {
   padding-top: 48px;
   padding-bottom: 56px;

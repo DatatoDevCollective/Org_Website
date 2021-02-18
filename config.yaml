@@ -1,7 +1,7 @@
 theme: "kube"
 baseURL: https://datatodev.netlify.app/
 languageCode: en-us
-title: "Data To Dev\n Collective"
+title: "Data To Dev Collective"
 
 Params:
   logo: /BigLogo.svg
@@ -9,6 +9,30 @@ Params:
 
 menu:
   main:
+    - name: Projects
+      url: /projects/
+      weight: 1
     - name: Blog
-      weight: -100
+      weight: 2
       url: /post/
+    - name: About
+      url: ""
+      identifier: About
+      weight: 3
+      post: <i class="fa fa-caret-down"></i>
+    - name: Team
+      url: /team.html/
+      parent: About
+      weight: 1
+    - name: Contact Us
+      url: /contact-us.html/
+      parent: About
+      weight: 2
+    - name: Join Us
+      url: /join-us.html/
+      parent: About
+      weight: 3
+    - name: FOSS Guidelines
+      url: /foss-guidelines.html/
+      parent: About
+      weight: 4
