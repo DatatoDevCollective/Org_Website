@@ -35,7 +35,7 @@
         <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" id="{{ if .HasChildren }}dropdown{{ end }}">
             <span>
               {{ if (and .URL .Pre) }}
-                <a href="{{ .URL }}">{{ .Pre }}</a>
+                <a href="{{ .URL }}" target="_blank">{{ .Pre }}</a>
               {{ else if .URL}}
                 <a href="{{ .URL }}">{{ .Name }}</a>
               {{ else }}
