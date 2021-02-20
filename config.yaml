@@ -4,7 +4,7 @@ languageCode: en-us
 title: "Data To Dev Collective"
 
 Params:
-  logo: /BigLogo.svg
+  logo: /images/BigLogo.svg
   logoHeight: 36px
 
 menu:

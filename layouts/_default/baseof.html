@@ -32,16 +32,21 @@
   <link rel="prev" href="{{ .Params.prev }}"> {{ end }} {{ if (isset .Params "next") }}
   <link rel="next" href="{{ .Params.next }}"> {{ end }}
 
-  {{ partial "favicon" . }}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ (resources.Get "images/apple-touch-icon.png" | fingerprint).RelPermalink }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ (resources.Get "images/favicon-32x32.png" | fingerprint).RelPermalink }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ (resources.Get "images/favicon-16x16.png" | fingerprint).RelPermalink }}">
 
-  <link href="{{ "/css/font.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="{{ "/css/kube.min.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="{{ "/css/kube.legenda.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="{{ "/css/highlight.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="{{ "/css/master.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="{{ "/css/kube.demo.css" | relURL }}" rel="stylesheet" type="text/css">
+
+
+  <link href="{{ (resources.Get "css/font.css" | fingerprint).RelPermalink }}" rel="stylesheet" type="text/css">
+  <link href="{{ (resources.Get "css/kube.min.css" | fingerprint).RelPermalink }}" rel="stylesheet" type="text/css">
+  <link href="{{ (resources.Get "css/kube.legenda.css" | fingerprint).RelPermalink }}" rel="stylesheet" type="text/css">
+  <link href="{{ (resources.Get "css/highlight.css" | fingerprint).RelPermalink }}" rel="stylesheet" type="text/css">
+  <link href="{{ (resources.Get "css/master.css" | fingerprint).RelPermalink }}" rel="stylesheet" type="text/css">
+  <link href="{{ (resources.Get "css/kube.demo.css" | fingerprint).RelPermalink }}" rel="stylesheet" type="text/css">
 <!-- Your own theme here -->
- <link href="{{ "/css/custom.css" | relURL }}" rel="stylesheet" type="text/css">
+ <link href="{{ (resources.Get "css/custom.css" | fingerprint).RelPermalink }}" rel="stylesheet" type="text/css">
+ <!--For custom icons from font awesome-->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- js vendor -->
   <script src="{{ "/js/jquery-2.1.4.min.js" | relURL }}" type="text/javascript">

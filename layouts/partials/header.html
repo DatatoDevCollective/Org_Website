@@ -7,7 +7,7 @@
   </div>
   <div class="hide-sm" id="top">
     <div id="top-brand">
-      <a href="/" title="home"><img height="{{ .Site.Params.logoHeight }}" src="{{ .Site.Params.logo }}"/></a>
+      <a href="/" title="home"><img height="{{ .Site.Params.logoHeight }}" src="{{ (resources.Get .Site.Params.logo | fingerprint).RelPermalink }}"/></a>
     </div>
 
     {{ $currentPage := . }}
