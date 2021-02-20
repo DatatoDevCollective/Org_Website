@@ -27,19 +27,19 @@ menu:
       url: /vision.html/
       parent: About
       weight: 1
+    - name: What We Do
+      url: /what-we-do.html/
+      parent: About
+      weight: 2
     - name: Team
       url: /team.html/
       parent: About
-      weight: 2
-    - name: Contact Us
-      url: /contact-us.html/
-      parent: About
       weight: 3
-    - name: Join Us
-      url: /join-us.html/
+    - name: Guidelines
+      url: /guidelines.html/
       parent: About
       weight: 4
-    - name: FOSS Guidelines
-      url: /foss-guidelines.html/
+    - name: Join Us
+      url: /join-us.html/
       parent: About
       weight: 5

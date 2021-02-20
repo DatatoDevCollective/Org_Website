@@ -238,6 +238,9 @@ h1, h2, h3, h4, h5, h6 {
   justify-self: flex-end;
   cursor: pointer;
 }
+#dropdown:hover {
+  text-decoration: underline;
+}
 #dropdown:hover #sub-menu {
   display: block !important;
 }
