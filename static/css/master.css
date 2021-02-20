@@ -214,17 +214,25 @@ h1, h2, h3, h4, h5, h6 {
         transition: all linear 0.2s;
         color: #000;
         text-decoration: underline; }
-
+#nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+#menu-extra {
+  justify-content: space-around;
+  width: 200px;
+}
 #menu {
   justify-content: space-around;
   width: 400px;
   height: auto;
 }
-#menu a{
+#menu a, #menu-extra a{
   color:#000;
   text-decoration: none;
 }
-#menu a:hover{
+#menu a:hover, #menu-extra a:hover{
   -moz-transition: all linear 0.2s;
   transition: all linear 0.2s;
   color: rgba(0, 0, 0);

@@ -43,3 +43,19 @@ menu:
       url: /join-us.html/
       parent: About
       weight: 5
+  extra:
+    - name: Linkedin
+      url: https://www.linkedin.com/
+      weight: 1
+      pre: <i class="fa fa-linkedin"></i>
+    - name: Github
+      url: https://www.github.com/DatatoDevCollective
+      weight: 2
+      pre: <i class="fa fa-github"></i>
+    - name: Twitter
+      url: https://www.twitter.com/
+      weight: 3
+      pre: <i class="fa fa-twitter"></i>
+    - name: Contribute
+      url: /contribute.html/
+      weight: 4
