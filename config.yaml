@@ -2,10 +2,12 @@ theme: "kube"
 baseURL: https://datatodev.netlify.app/
 languageCode: en-us
 title: "Data To Dev Collective"
+summaryLength: 20
 
 Params:
   logo: /images/BigLogo.svg
   logoHeight: 36px
+  description: "Description text"
 
 menu:
   main:
