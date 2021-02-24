@@ -7,3 +7,5 @@ Site deployed with Kube theme.
 https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
 ### RMarkdown Syntax: Links, images, footnotes, blockquotes, math, etc.
 https://bookdown.org/yihui/rmarkdown/markdown-syntax.html
+### Non R code in RMarkdown
+https://bookdown.org/yihui/rmarkdown/language-engines.html
