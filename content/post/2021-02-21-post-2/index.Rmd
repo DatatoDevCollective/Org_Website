@@ -8,8 +8,11 @@ Sit ad fugiat amet quis do Lorem enim voluptate officia do aute non. Commodo tem
 
 Non tempor excepteur consectetur irure esse irure fugiat excepteur eu mollit id. Laborum do minim irure non culpa aliquip proident officia. Officia do quis mollit et sint. Et ea irure sunt magna id reprehenderit laboris laboris sit non fugiat ad. Ea incididunt irure laboris magna dolor labore labore ipsum nisi est. Consectetur exercitation amet deserunt ullamco sint et aliqua ex sit occaecat.
 
-Occaecat est in qui ea aute proident sint nostrud et quis excepteur ipsum Lorem. Sint mollit incididunt ipsum ad. Esse consectetur reprehenderit enim velit.
-
-Aliquip consequat dolor qui ut sunt sint deserunt incididunt. Laboris in qui magna tempor nulla et exercitation. Tempor amet sunt nostrud tempor ex occaecat non. Amet dolor amet ea velit nostrud esse. Nulla enim cillum ex dolore eiusmod nostrud cupidatat irure adipisicing elit cillum veniam sit aute.
-
-Laboris laboris commodo nulla officia sit occaecat dolor exercitation reprehenderit enim. Nisi officia ea veniam duis anim. Id laboris anim do pariatur nulla veniam anim reprehenderit eu irure nulla consectetur labore ut. Et do quis consectetur minim aliqua tempor enim sunt enim fugiat.
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '852205086956818432')
+blogdown::shortcode('figure', src='/pie-1.png/', alt="Pie Chart", title="Pie Chart")
+blogdown::shortcode('youtube', 'qtIqKaDlqXo')
+blogdown::shortcode('vimeo', '54990931')
+# blogdown::shortcode('instagram', 'CDqYj_GDfdg') # Instagram is giving error for too many API requests
+blogdown::shortcode('spotify', type='track', id='4GWJ1YaRsNgzom34D6Zi08', height=80)
+```

@@ -312,12 +312,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 #list-block p {
   width: 250px;
+  text-align: justify;
+  margin-right: 20px;
 }
-#list-block a {
+#list-block a{
+  margin-top: auto;
+}
+#main-container a {
   color: #000;
   text-decoration: none;
 }
-#list-block a:hover {
+#main-container a:hover {
   -moz-transition: all linear 0.2s;
   transition: all linear 0.2s;
   text-decoration: underline;
@@ -345,7 +350,15 @@ h1, h2, h3, h4, h5, h6 {
 #contribute-btn:hover a {
   color: #000;
 }
-
+a[itemprop="headline"] {
+  color: #000;
+  text-decoration: none;
+}
+a[itemprop="headline"]:hover {
+  -moz-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+  text-decoration: underline;
+}
 #intro {
   margin-top: 56px;
   margin-bottom: 140px;
@@ -858,7 +871,7 @@ body.page-account #hero {
   margin: auto;
   margin-top: 48px;
   margin-bottom: 128px;
-  max-width: 680px;
+  max-width: 500px;
   text-align: center; }
 
 #posts li {
@@ -868,9 +881,14 @@ body.page-account #hero {
   font-size: 22px;
   font-weight: normal;
   margin: 0;
+  margin-bottom: 7px;
   line-height: 28px; }
 
-#posts h2 a {
+#posts p {
+  text-align: justify;
+}
+
+/* #posts h2 a {
   color: #1eabf2;
   text-decoration: none; }
 
@@ -878,7 +896,7 @@ body.page-account #hero {
   -moz-transition: all linear 0.2s;
   transition: all linear 0.2s;
   color: #000;
-  text-decoration: underline; }
+  text-decoration: underline; } */
 
 #posts time {
   font-size: 12px;

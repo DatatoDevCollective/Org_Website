@@ -9,7 +9,7 @@
   </div>
 
   <div id="main-container">
-    <h2>Projects</h2>
+    <h2><a href="/projects/">Projects</a></h2>
     <div id="list-box">
       {{ range first 4 (where .Site.RegularPages "Section" "projects") }}
       <div id="list-block">
@@ -28,7 +28,7 @@
   </div>
 
   <div id="main-container">
-    <h2>Blog</h2>
+    <h2><a href="/post/">Blog</a></h2>
     <div id="list-box">
       {{ range first 4 (where .Site.RegularPages "Section" "post") }}
       <div id="list-block">
