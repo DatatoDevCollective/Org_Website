@@ -3,7 +3,7 @@ baseURL: https://datatodev.netlify.app/
 languageCode: en-us
 title: "Data to Dev Collective"
 summaryLength: 20
-paginate: 2
+paginate: 1
 
 Params:
   logo: /images/BigLogo.svg

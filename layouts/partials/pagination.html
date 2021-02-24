@@ -1,15 +1,87 @@
-<nav class="pagination pager align-center">
+<nav class="page-menu">
             <hr>
-    <ul>
-           {{if .Paginator.HasPrev }}
-        <li class="prev"><a href="{{ .Paginator.Prev.URL }}">Previous</a></li>
+    <ul class="page-ul">
+        {{if .Paginator.HasPrev }}
+            <li class="page-btn"><a href="{{ .Paginator.First.URL }}">&lt;&lt;First</a></li>
+            <li class="page-btn"><a href="{{ .Paginator.Prev.URL }}">&lt;Previous</a></li>
         {{ end }}
-        <li>
 
-        <a href="" class="button round small outline">Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</a>
-        </li>
-            {{ if .Paginator.HasNext }}</a>
-        <li class="next"><a href="{{ .Paginator.Next.URL }}">Next</a></li>
-           {{ end }}
+        <!--The code below has been adapted from https://glennmccomb.com/articles/how-to-build-custom-hugo-pagination-->
+        {{ $paginator := .Paginator }}
+        {{ $adjacent_links := 2 }}
+
+        <!-- $max_links = ($adjacent_links * 2) + 1 -->
+        {{ $max_links := (add (mul $adjacent_links 2) 1) }}
+        
+        <!-- $lower_limit = $adjacent_links + 1 -->
+        {{ $lower_limit := (add $adjacent_links 1) }}
+        
+        <!-- $upper_limit = $paginator.TotalPages - $adjacent_links -->
+        {{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
+           
+            <!-- Page numbers. -->
+            {{ range $paginator.Pagers }}
+            
+              {{ $.Scratch.Set "page_number_flag" false }}
+        
+              
+              <!-- Advanced page numbers. -->
+              {{ if gt $paginator.TotalPages $max_links }}
+        
+        
+                <!-- Lower limit pages. -->
+                <!-- If the user is on a page which is in the lower limit.  -->
+                {{ if le $paginator.PageNumber $lower_limit }}
+        
+                  <!-- If the current loop page is less than max_links. -->
+                  {{ if le .PageNumber $max_links }}
+                    {{ $.Scratch.Set "page_number_flag" true }}
+                  {{ end }}
+        
+        
+                <!-- Upper limit pages. -->
+                <!-- If the user is on a page which is in the upper limit. -->
+                {{ else if ge $paginator.PageNumber $upper_limit }}
+        
+                  <!-- If the current loop page is greater than total pages minus $max_links -->
+                  {{ if gt .PageNumber (sub $paginator.TotalPages $max_links) }}
+                    {{ $.Scratch.Set "page_number_flag" true }}
+                  {{ end }}
+        
+        
+                <!-- Middle pages. -->
+                {{ else }}
+                  
+                  {{ if and ( ge .PageNumber (sub $paginator.PageNumber $adjacent_links) ) ( le .PageNumber (add $paginator.PageNumber $adjacent_links) ) }}
+                    {{ $.Scratch.Set "page_number_flag" true }}
+                  {{ end }}
+        
+                {{ end }}
+        
+              
+              <!-- Simple page numbers. -->
+              {{ else }}
+        
+                {{ $.Scratch.Set "page_number_flag" true }}
+        
+              {{ end }}
+        
+              <!-- Output page numbers. -->
+              {{ if eq ($.Scratch.Get "page_number_flag") true }}
+                <li class="pagination__item{{ if eq . $paginator }} pagination__item--current{{ end }}">
+                  <a href="{{ .URL }}" class="pagination__link">
+                    {{ .PageNumber }}
+                  </a>
+                </li>
+              {{ end }}
+        
+            {{ end }}
+        
+
+
+        {{ if $paginator.HasNext }}
+            <li class="page-btn"><a href="{{ $paginator.Next.URL }}">Next&gt;</a></li>
+            <li class="page-btn"><a href="{{ $paginator.Last.URL }}">Last&gt;&gt;</a></li>
+        {{ end }}
     </ul>
 </nav>
