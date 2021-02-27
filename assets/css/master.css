@@ -1217,6 +1217,19 @@ tr.border-none td {
     text-decoration: underline; }
 
 @media (max-width: 768px) {
+  #list-box {
+    display: block;
+  }
+  #list-box p {
+    margin: auto;
+    margin-bottom: 16px;
+  }
+  #list-block {
+    align-items: center;
+  }
+  .page-ul { /* For pagination menu*/
+    flex-wrap: wrap;
+  }
   #top {
     display: block;
     height: auto;
