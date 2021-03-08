@@ -3,6 +3,8 @@
 
 Site deployed with Kube theme.
 <br>
+### Making the website accessible
+Mozilla accessibility [guide](https://developer.mozilla.org/en-US/docs/Learn/Accessibility)
 ### Bibliographies and citations
 https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
 ### RMarkdown Syntax: Links, images, footnotes, blockquotes, math, etc.
