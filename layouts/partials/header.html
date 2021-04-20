@@ -1,61 +1,80 @@
 <div class="show-sm">
-    <div id="nav-toggle-box">
-      <div id="nav-toggle-brand">
-        <a href="/">{{ .Site.Title }}</a>
-      </div><a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+  <div id="nav-toggle-box">
+    <div id="nav-toggle-brand">
+      <a href="/">{{ .Site.Title }}</a>
     </div>
+    <a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"
+      ><i class="kube-menu"></i
+    ></a>
   </div>
-  <div class="hide-sm" id="top">
-    <div id="top-brand">
-      <a href="/" title="home"><img height="{{ .Site.Params.logoHeight }}" src="{{ (resources.Get .Site.Params.logo | fingerprint).RelPermalink }}"/></a>
-    </div>
+</div>
+<div class="hide-sm" id="top">
+  <div id="top-brand">
+    <a href="/" title="home"
+      ><img
+        height="{{ .Site.Params.logoHeight }}"
+        src="{{ (resources.Get .Site.Params.logo | fingerprint).RelPermalink }}"
+    /></a>
+  </div>
 
-    {{ $currentPage := . }}
-    <nav id="nav">
-      <ul id="menu">
-          {{ range .Site.Menus.main }}
-          <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" id="{{ if .HasChildren }}dropdown{{ end }}">
-              <span>{{ if .URL }}<a href="{{ .URL }}">{{ .Name }}</a>{{ else }}{{ .Name }}{{ end }}</span>
-              {{ if .HasChildren }}
-                {{ .Post }}
-              <ul id="sub-menu">
-                  {{ range .Children }}
-                  <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
-                      <span><a href="{{ .URL }}">{{ .Name }}</a></span>
-                  </li>
-                  {{ end }}
-              </ul>
-             {{ end }}
-          </li>
-          {{ end }}
-      </ul>
-
-      <ul id="menu-extra">
-        {{ range .Site.Menus.extra }}
-        <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" id="{{ if .HasChildren }}dropdown{{ end }}">
-            <span>
-              {{ if (and .URL .Pre) }}
-                <a href="{{ .URL }}" target="_blank">{{ .Pre }}</a>
-              {{ else if .URL}}
-                <a href="{{ .URL }}">{{ .Name }}</a>
-              {{ else }}
-                {{ .Name }}
-              {{ end }}
-            </span>
-            {{ if .HasChildren }}
-              {{ .Post }}
+  {{ $currentPage := . }}
+  <nav id="nav">
+    <ul id="menu">
+      {{ range .Site.Menus.main }}
+        <li
+          class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}"
+          id="{{ if .HasChildren }}dropdown{{ end }}"
+        >
+          <span
+            >{{ if .URL }}
+              <a href="{{ .URL }}">{{ .Name }}</a>{{ else }}{{ .Name }}{{ end }}
+            </span
+          >
+          {{ if .HasChildren }}
+            {{ .Post }}
             <ul id="sub-menu">
-                {{ range .Children }}
-                <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
-                    <span><a href="{{ .URL }}">{{ .Name }}</a></span>
+              {{ range .Children }}
+                <li
+                  class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}"
+                >
+                  <span><a href="{{ .URL }}">{{ .Name }}</a></span>
                 </li>
-                {{ end }}
+              {{ end }}
             </ul>
-           {{ end }}
+          {{ end }}
         </li>
-        {{ end }}
-      </ul>
+      {{ end }}
+    </ul>
+
+    <ul id="menu-extra">
+      {{ range .Site.Menus.extra }}
+        <li
+          class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}"
+          id="{{ if .HasChildren }}dropdown{{ end }}"
+        >
+          <span>
+            {{ if (and .URL .Pre) }}
+              <a href="{{ .URL }}" target="_blank">{{ .Pre }}</a>
+              {{ else if .URL }}
+              <a href="{{ .URL }}">{{ .Name }}</a>
+              {{ else }}
+              {{ .Name }}
+            {{ end }}
+          </span>
+          {{ if .HasChildren }}
+            {{ .Post }}
+            <ul id="sub-menu">
+              {{ range .Children }}
+                <li
+                  class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}"
+                >
+                  <span><a href="{{ .URL }}">{{ .Name }}</a></span>
+                </li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
   </nav>
-
-
-  </div>
+</div>

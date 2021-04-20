@@ -3,48 +3,65 @@
     <p style="color:red">&copy; Put copyright/licence here.</p>
     {{ $currentPage := . }}
     <nav>
-        <ul>
-          {{ range .Site.Menus.main }}
-            <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" id="{{ if .HasChildren }}parent-item{{ end }}">
-                <span>{{ if .URL }}<a href="{{ .URL }}">{{ .Name }}</a>{{ else }}{{ .Name }}{{ end }}</span>
-                {{ if .HasChildren }}
-                  <span><ul id="sub-menu">
-                    {{ range .Children }}
-                    <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
-                        <span><a href="{{ .URL }}">{{ .Name }}</a></span>
-                    </li></span>
-                    {{ end }}
-                  </ul>
-              {{ end }}
-            </li>
-          {{ end }}
-        </ul>
-
-        <ul>
-          {{ range .Site.Menus.extra }}
-          <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" id="{{ if .HasChildren }}dropdown{{ end }}">
+      <ul>
+        {{ range .Site.Menus.main }}
+          <li
+            class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}"
+            id="{{ if .HasChildren }}parent-item{{ end }}"
+          >
+            <span
+              >{{ if .URL }}
+                <a href="{{ .URL }}">{{ .Name }}</a
+                >{{ else }}{{ .Name }}{{ end }}
+              </span
+            >
+            {{ if .HasChildren }}
               <span>
-                {{ if (and .URL .Pre) }}
-                  <a href="{{ .URL }}" target="_blank">{{ .Pre }}</a>
-                {{ else if .URL}}
-                  <a href="{{ .URL }}">{{ .Name }}</a>
-                {{ else }}
-                  {{ .Name }}
-                {{ end }}
-              </span>
-              {{ if .HasChildren }}
-                {{ .Post }}
-              <ul id="sub-menu">
+                <ul id="sub-menu">
                   {{ range .Children }}
-                  <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                    <li
+                      class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}"
+                    >
                       <span><a href="{{ .URL }}">{{ .Name }}</a></span>
-                  </li>
+                    </li>
                   {{ end }}
-              </ul>
-             {{ end }}
+                </ul>
+              </span>
+            {{ end }}
           </li>
-          {{ end }}
-        </ul>
-      </nav>
-    </div>
-  </footer>
+        {{ end }}
+      </ul>
+
+      <ul>
+        {{ range .Site.Menus.extra }}
+          <li
+            class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}"
+            id="{{ if .HasChildren }}dropdown{{ end }}"
+          >
+            <span>
+              {{ if (and .URL .Pre) }}
+                <a href="{{ .URL }}" target="_blank">{{ .Pre }}</a>
+                {{ else if .URL }}
+                <a href="{{ .URL }}">{{ .Name }}</a>
+                {{ else }}
+                {{ .Name }}
+              {{ end }}
+            </span>
+            {{ if .HasChildren }}
+              {{ .Post }}
+              <ul id="sub-menu">
+                {{ range .Children }}
+                  <li
+                    class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}"
+                  >
+                    <span><a href="{{ .URL }}">{{ .Name }}</a></span>
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</footer>
