@@ -1,20 +1,50 @@
-  <footer id="footer">
+<footer id="footer">
+  <div>
+    <p style="color:red">&copy; Put copyright/licence here.</p>
+    {{ $currentPage := . }}
     <nav>
-      <ul>
-        <li><span>Kube</span></li>
-        <li>
-          <a href="/company/">Company</a>
-        </li>
-        <li>
-          <a href="/blog/">Blog</a>
-        </li>
-          <li>
-          <a href="/docs/">Docs</a>
-        </li>
-        <li>
-          <a href="https://twitter.com/{{.Site.Params.twitter}}">Give a shout-out on Twitter!</a>
-        </li>
-      </ul>
-    </nav>
-    <p>&copy; Licence MIT.</p>
+        <ul>
+          {{ range .Site.Menus.main }}
+            <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" id="{{ if .HasChildren }}parent-item{{ end }}">
+                <span>{{ if .URL }}<a href="{{ .URL }}">{{ .Name }}</a>{{ else }}{{ .Name }}{{ end }}</span>
+                {{ if .HasChildren }}
+                  <span><ul id="sub-menu">
+                    {{ range .Children }}
+                    <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                        <span><a href="{{ .URL }}">{{ .Name }}</a></span>
+                    </li></span>
+                    {{ end }}
+                  </ul>
+              {{ end }}
+            </li>
+          {{ end }}
+        </ul>
+
+        <ul>
+          {{ range .Site.Menus.extra }}
+          <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" id="{{ if .HasChildren }}dropdown{{ end }}">
+              <span>
+                {{ if (and .URL .Pre) }}
+                  <a href="{{ .URL }}" target="_blank">{{ .Pre }}</a>
+                {{ else if .URL}}
+                  <a href="{{ .URL }}">{{ .Name }}</a>
+                {{ else }}
+                  {{ .Name }}
+                {{ end }}
+              </span>
+              {{ if .HasChildren }}
+                {{ .Post }}
+              <ul id="sub-menu">
+                  {{ range .Children }}
+                  <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                      <span><a href="{{ .URL }}">{{ .Name }}</a></span>
+                  </li>
+                  {{ end }}
+              </ul>
+             {{ end }}
+          </li>
+          {{ end }}
+        </ul>
+      </nav>
+    </div>
   </footer>
