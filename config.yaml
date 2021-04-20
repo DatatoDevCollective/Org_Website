@@ -5,6 +5,13 @@ title: "Data to Dev Collective"
 summaryLength: 20
 paginate: 1
 
+# markup:
+#   defaultMarkdownHandler: blackfriday
+# markup:
+#   goldmark:
+#     renderer:
+#       unsafe: true
+
 Params:
   logo: /images/BigLogo.svg
   logoHeight: 36px
@@ -26,12 +33,12 @@ menu:
       identifier: About
       weight: 4
       post: <i class="fa fa-caret-down"></i>
-    - name: Vision
-      url: /vision.html/
+    - name: About Us
+      url: /about-us/
       parent: About
       weight: 1
     - name: What We Do
-      url: /what-we-do.html/
+      url: /what-we-do/
       parent: About
       weight: 2
     - name: Team
