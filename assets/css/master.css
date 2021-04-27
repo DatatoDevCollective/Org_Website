@@ -1631,6 +1631,7 @@ tr.border-none td {
 .member-content.active .member-description {
   opacity: 1;
   max-height: 1000px;
+  margin-top: 2em;
   transition: 300ms all ease-out;
 }
 .member-content.active .team-member {
