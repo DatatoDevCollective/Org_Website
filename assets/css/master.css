@@ -1536,6 +1536,8 @@ tr.border-none td {
   /* max-width: 344px; */
   margin-left: auto;
   margin-right: auto;
+  transition: 300ms all ease-in;
+  width: 100%;
 }
 .team-member {
   --top-margin: 2em;
@@ -1632,6 +1634,12 @@ tr.border-none td {
   opacity: 1;
   max-height: 1000px;
   margin-top: 2em;
+  transition: 300ms all ease-out;
+}
+.member-content.active {
+  outline: 0.3rem solid rgba(255,51,102, 0.3);
+  border-radius: 0.5rem;
+  padding: 1em;
   transition: 300ms all ease-out;
 }
 .member-content.active .team-member {
