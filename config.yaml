@@ -42,7 +42,7 @@ menu:
       parent: About
       weight: 2
     - name: Team
-      url: /team.html/
+      url: /team/
       parent: About
       weight: 3
     - name: Guidelines
@@ -69,3 +69,14 @@ menu:
     - name: Contribute
       url: /contribute.html/
       weight: 4
+  team:
+    - name: Kiranmayi Vadlamudi
+      params:
+        designation: Co-Founder
+        description: "Test description: Kiranmayi is a geospatial data scientist and a complexity science researcher."
+        image: "/images/Kiran.jpg"
+    - name: Manan Gupta
+      params:
+        designation: Co-Founder
+        description: "Test description: Manan is a geospatial data scientist and an evolutionary biologist."
+        image: "/images/Manan.jpg"

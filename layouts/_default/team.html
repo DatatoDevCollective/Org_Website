@@ -1,0 +1,39 @@
+{{ define "title" }} {{ .Title }} {{ end }}
+{{ define "header" }} {{ partial "header" . }} {{ end }}
+
+{{ define "main" }}
+  <div id="hero" class="wrap">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.description }}</p>
+  </div>
+  <ul id="posts">
+    {{ .Content }}
+    <section id="team-content">
+      {{ range .Site.Menus.team }}
+        <div class="member-content">
+          <div class="team-member">
+            <h2 class="member-name">{{ .Name }}</h2>
+            <p class="member-designation">{{ .Params.designation }}</p>
+            <img
+              src="{{ (resources.Get .Params.image | fingerprint).RelPermalink }}"
+              alt="Image of {{ .Name }}"
+              height="344px"
+              width="344px"
+            />
+          </div>
+          <p class="member-description">{{ .Params.description }}</p>
+        </div>
+      {{ end }}
+    </section>
+  </ul>
+  <style>
+    #posts p {
+      text-align: center;
+    }
+  </style>
+{{ end }}
+{{ define "footer" }}
+  <script src="{{ (resources.Get "js/team.js" | fingerprint).RelPermalink }}" type="text/javascript">
+</script>
+  {{ partial "footer" . }}
+{{ end }}

@@ -1523,6 +1523,160 @@ tr.border-none td {
   color: #000;
   text-decoration: underline;
 }
+/* For fancy Team page. Isnpired by https://piccalil.li/tutorial/build-a-fancy-hover-animation */
+#team-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+#team-content > * + * {
+  margin-top: var(--top-margin, 1em);
+}
+.member-content {
+  /* max-width: 344px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+.team-member {
+  --top-margin: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: auto;
+  /* aspect-ratio: 1/1; */
+  min-height: 344px;
+  max-width: 344px;
+  position: relative;
+  /* padding: 1.5rem; */
+  backface-visibility: hidden;
+  color: #ffffff;
+  overflow: hidden;
+  cursor: pointer;
+}
+.team-member h2 {
+  text-align: justify;
+  color: #ffffff;
+  padding: 0 1em;
+  transition: 300ms transform ease;
+}
+.team-member p {
+  text-align: justify !important;
+}
+.team-member .member-designation {
+  opacity: 0;
+  padding: 0 1em;
+  transition: 300ms opacity linear, 300ms transform ease-in-out;
+}
+.team-member h2,
+.team-member .member-designation {
+  transform: translateY(2ex);
+}
+.team-member::before,
+.team-member::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.team-member::before {
+  background: linear-gradient(
+    to top,
+    hsl(0 0% 0% / 0.79) 0%,
+    hsl(0 0% 0% / 0.787) 7.8%,
+    hsl(0 0% 0% / 0.779) 14.4%,
+    hsl(0 0% 0% / 0.765) 20.2%,
+    hsl(0 0% 0% / 0.744) 25.3%,
+    hsl(0 0% 0% / 0.717) 29.9%,
+    hsl(0 0% 0% / 0.683) 34.3%,
+    hsl(0 0% 0% / 0.641) 38.7%,
+    hsl(0 0% 0% / 0.592) 43.3%,
+    hsl(0 0% 0% / 0.534) 48.4%,
+    hsl(0 0% 0% / 0.468) 54.1%,
+    hsl(0 0% 0% / 0.393) 60.6%,
+    hsl(0 0% 0% / 0.31) 68.3%,
+    hsl(0 0% 0% / 0.216) 77.3%,
+    hsl(0 0% 0% / 0.113) 87.7%,
+    hsl(0 0% 0% / 0) 100%
+  );
+  transition: 300ms opacity linear;
+}
+.team-member::after {
+  background: linear-gradient(45deg, rgba(255,51,102,0.7) 0%, rgba(255,255,255,0) 100%);
+  opacity: 0;
+  transition: 300ms opacity linear;
+}
+.team-member > * {
+  z-index: 1;
+}
+.team-member img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: -1;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: filter 200ms ease, transform 250ms linear;
+}
+.member-description {
+  opacity: 0;
+  max-height: 0;
+  transition: 300ms all ease-in;
+}
+.member-content.active .member-description {
+  opacity: 1;
+  max-height: 1000px;
+  transition: 300ms all ease-out;
+}
+.member-content.active .team-member {
+  outline: 0.5rem solid white;
+  outline-offset: -0.5rem;
+}
+.team-member:focus {
+  outline: 0.5rem solid white;
+  outline-offset: -0.5rem;
+}
+
+.team-member:hover :is(h2, .member-designation),
+.team-member:focus :is(h2, .member-designation) {
+  transform: none;
+}
+.member-content.active :is(h2, .member-designation) {
+  transform: none;
+}
+.team-member:hover .member-designation,
+.team-member:focus .member-designation {
+  opacity: 1;
+  transition-delay: 200ms;
+}
+.member-content.active .member-designation {
+  opacity: 1;
+  transition-delay: 200ms;
+}
+.team-member:hover::after,
+.team-member:focus::after,
+.team-member:hover::before,
+.team-member:focus::before {
+  opacity: 0.7;
+}
+.member-content.active .team-member::after,
+.member-content.active .team-member::before {
+  opacity: 0.7;
+}
+.team-member:hover img,
+.team-member:focus img {
+  filter: grayscale(0);
+  transform: scale(1.05) rotate(1deg);
+}
+.member-content.active img{
+  filter: grayscale(0);
+  transform: scale(1.05) rotate(1deg);
+}
 
 @media (max-width: 768px) {
   #list-box {
