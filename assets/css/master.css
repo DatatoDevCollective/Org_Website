@@ -33,8 +33,8 @@ h6 {
 }
 
 a:focus {
-  padding: 0.2em;
-  border: 1px solid #000;
+  outline-offset: 0.2em;
+  outline: 1px solid #000;
 }
 
 .form-centered {
@@ -316,10 +316,12 @@ a:focus {
 }
 #sub-menu {
   position: absolute;
-  display: none !important;
+  display: block !important;
+  opacity: 0;
   margin: 0;
 }
 #footer #sub-menu {
+  opacity: 1;
   position: relative;
   display: block !important;
 }
@@ -335,12 +337,23 @@ a:focus {
   transition: all linear 0.2s;
   cursor: pointer;
 }
-#dropdown:hover {
+#dropdown:hover,
+#dropdown:focus {
   text-decoration: underline;
   /* background-color: rgba(200, 200, 200, 0.1); */
 }
-#dropdown:hover #sub-menu {
-  display: block !important;
+#dropdown:focus {
+  outline-offset: 0.2em;
+  outline: 1px solid #000;
+}
+#dropdown:hover #sub-menu,
+#dropdown:focus #sub-menu {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.85);
+  animation: dropdown-animation 0.5s cubic-bezier(1,0,0,1);
+}
+#dropdown:focus-within #sub-menu {
+  opacity: 1;
   background-color: rgba(255, 255, 255, 0.85);
   animation: dropdown-animation 0.5s cubic-bezier(1,0,0,1);
 }

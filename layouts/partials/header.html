@@ -23,7 +23,7 @@
       {{ range .Site.Menus.main }}
         <li
           class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}"
-          id="{{ if .HasChildren }}dropdown{{ end }}"
+          id="{{ if .HasChildren }}dropdown{{ end }}" {{ if .HasChildren }}tabindex="0"{{ end }}
         >
           <span
             >{{ if .URL }}
