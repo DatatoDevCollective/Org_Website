@@ -32,6 +32,11 @@ h6 {
   color: #222;
 }
 
+a:focus {
+  padding: 0.2em;
+  border: 1px solid #000;
+}
+
 .form-centered {
   max-width: 400px;
   margin: auto;
@@ -1650,9 +1655,16 @@ tr.border-none td {
   outline: 0.5rem solid white;
   outline-offset: -0.5rem;
 }
+.member-content:focus .team-member {
+  outline: 0.5rem solid white;
+  outline-offset: -0.5rem;
+}
 
 .team-member:hover :is(h2, .member-designation),
 .team-member:focus :is(h2, .member-designation) {
+  transform: none;
+}
+.member-content:focus :is(h2, .member-designation) {
   transform: none;
 }
 .member-content.active :is(h2, .member-designation) {
@@ -1660,6 +1672,10 @@ tr.border-none td {
 }
 .team-member:hover .member-designation,
 .team-member:focus .member-designation {
+  opacity: 1;
+  transition-delay: 200ms;
+}
+.member-content:focus .member-designation {
   opacity: 1;
   transition-delay: 200ms;
 }
@@ -1673,6 +1689,10 @@ tr.border-none td {
 .team-member:focus::before {
   opacity: 0.7;
 }
+.member-content:focus .team-member::before,
+.member-content:focus .team-member::after {
+  opacity: 0.7;
+}
 .member-content.active .team-member::after,
 .member-content.active .team-member::before {
   opacity: 0.7;
@@ -1682,9 +1702,29 @@ tr.border-none td {
   filter: grayscale(0);
   transform: scale(1.05) rotate(1deg);
 }
+.member-content:focus img {
+  filter: grayscale(0);
+  transform: scale(1.05) rotate(1deg);
+}
 .member-content.active img{
   filter: grayscale(0);
   transform: scale(1.05) rotate(1deg);
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @media (max-width: 768px) {

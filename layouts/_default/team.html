@@ -10,7 +10,7 @@
     {{ .Content }}
     <section id="team-content">
       {{ range .Site.Menus.team }}
-        <div class="member-content">
+        <div class="member-content" tabindex="0">
           <div class="team-member">
             <h2 class="member-name">{{ .Name }}</h2>
             <p class="member-designation">{{ .Params.designation }}</p>
